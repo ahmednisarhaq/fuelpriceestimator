@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An independent Pakistan petrol price forecast based on Brent futures and the USD/PKR rate.">
+  <meta name="theme-color" content="#F4A261">
+  <title>FuelCast — Tomorrow's Price, Today</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@600;700;800&family=Roboto+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Pakistan Petrol Price Forecast home">
+        <span class="brand-mark" aria-hidden="true">⛽</span>
+        <span>FuelCast</span>
+      </a>
+      <span class="independent-label">Tomorrow's price, today</span>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="forecast-heading">
+        <div class="hero-copy">
+          <p class="eyebrow">Pakistan petrol price forecast</p>
+          <h1 id="forecast-heading">Tomorrow’s price,<br><span>today.</span></h1>
+          <p class="hero-summary">A friendly daily forecast of Pakistan’s next government-announced petrol price.</p>
+          <p class="tagline">Aap ka petrol price forecast insider</p>
+        </div>
+
+        <div class="forecast-panel">
+          <p class="panel-label" id="forecast-date">Predicted petrol price for the next price date</p>
+          <p class="forecast-price" id="predicted-price">—</p>
+          <p class="per-litre">per litre</p>
+
+          <div class="change-alert" id="change-alert" role="status" aria-live="polite">
+            <span class="change-arrow" id="change-arrow" aria-hidden="true">↑</span>
+            <div>
+              <span class="change-label" id="change-label">Expected increase</span>
+              <strong id="change-amount">—</strong>
+              <span id="change-percent">—</span>
+            </div>
+          </div>
+
+          <div class="price-baseline">
+            <span>Current official price</span>
+            <strong id="current-price">—</strong>
+          </div>
+          <div class="price-baseline forecast-range">
+            <span>Suggested forecast range</span>
+            <strong id="forecast-range">—</strong>
+          </div>
+          <p class="published-time" id="forecast-created">Forecast recorded —</p>
+        </div>
+      </section>
+
+      <section class="section performance" aria-labelledby="performance-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Track record</p>
+            <h2 id="performance-heading">Previous predictions</h2>
+          </div>
+          <p>Every forecast is compared with the price subsequently announced by the Government of Pakistan.</p>
+        </div>
+
+        <div class="metrics" aria-label="Prediction performance summary">
+          <article class="metric">
+            <span>Average absolute error</span>
+            <strong id="metric-mae">—</strong>
+          </article>
+          <article class="metric">
+            <span>Within Rs. 1</span>
+            <strong id="metric-within-one">—</strong>
+          </article>
+          <article class="metric">
+            <span>Direction correct</span>
+            <strong id="metric-direction">—</strong>
+          </article>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Price date</th>
+                <th scope="col">Predicted</th>
+                <th scope="col">Official</th>
+                <th scope="col">Signed error</th>
+                <th scope="col">Absolute error</th>
+                <th scope="col">Direction</th>
+              </tr>
+            </thead>
+            <tbody id="history-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section chart-section" aria-labelledby="chart-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Since 20 July 2026</p>
+            <h2 id="chart-heading">Forecast vs. official price</h2>
+          </div>
+          <div class="legend" aria-hidden="true">
+            <span><i class="legend-line official"></i>Official</span>
+            <span><i class="legend-line predicted"></i>Predicted</span>
+          </div>
+        </div>
+        <div class="chart-wrap">
+          <canvas id="price-chart" role="img" aria-label="Line chart comparing predicted and official petrol prices since 20 July 2026"></canvas>
+        </div>
+      </section>
+
+      <section class="disclaimer" aria-labelledby="disclaimer-heading">
+        <h2 id="disclaimer-heading">Important notice</h2>
+        <p>This forecast uses a seven-trading-day rolling average of ICE Brent futures, adjusted for the latest USD/PKR rate and recent observed pass-through into Pakistan’s petrol prices. It is an independent estimate and may differ from OGRA’s calculation, which uses Platts Arab Gulf MS-92 petrol prices and additional import-cost adjustments. It is not affiliated with the Government of Pakistan, OGRA, the Petroleum Division or the State Bank of Pakistan.</p>
+      </section>
+    </main>
+
+    <footer>
+      <span>FuelCast — Tomorrow's Price, Today</span>
+      <span id="model-version">Model —</span>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
