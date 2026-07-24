@@ -25,7 +25,7 @@ window.PETROL_DATA = {
 
   currentForecast: {
     forecastDate: "2026-07-25",
-    announcementDate: "2026-07-23",
+    announcementDate: "2026-07-24",
     currentOfficialPrice: 331.52,
     previousFx: 277.91,
     latestFx: 277.90,
